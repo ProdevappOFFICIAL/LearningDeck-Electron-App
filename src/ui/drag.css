@@ -1,0 +1,7 @@
+/* styles.css */
+.drag-region {
+    -webkit-app-region: drag; /* For macOS apps */
+}
+.no-drag-gion {
+    -webkit-app-region: no-drag;
+}

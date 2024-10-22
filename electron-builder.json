@@ -1,0 +1,16 @@
+{
+  "appId": "com.learningdeck.prutotechnologies",
+  "files": ["dist-electron", "dist-react"],
+  "extraResources": ["dist-electron/preload.cjs", "src/assets/**"],
+  "icon": "../ui/assets/lds.png",
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage",
+    "category": "Utility"
+  },
+  "win": {
+    "target": ["portable", "msi"]
+  }
+}
