@@ -7,13 +7,40 @@ import { useEffect, useState } from "react";
 import { MoonLoader } from "react-spinners";
 import { Bolt, ChevronRight, House, LockOpen, RefreshCcw, RotateCwSquare } from "lucide-react";
 import './drag.css'
-function App() {
+import '../assets/lds.png'
+function App() {  
+const [page, setpage] =useState('Splash')   
+
+  useEffect(() => {
+    setTimeout(() => {
+      setpage('Home')
+    }, 10000);
+   })
+   return ( 
+   <div>
+    {page === 'Splash' && <Splash/>}
+    {page === 'Home' && <Body/>}
+
+   </div>
+    
+   );
+}
+
+function Splash() {
+  return(
+     <div className=" flex flex-col h-screen w-screen items-center justify-center ">
+     <img className=" p-[1px] bg-green-400/20 rounded-full animate-in scale-90 opacity-10 duration-1000   animate-pulse  transition-all " alt="hello" height={110} width={110} src="../assets/lds.png" />
+   </div>
+  )
+}
+
+function Body() { 
   const [error, setError] = useState('');
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(true);
   const [low , setLow] = useState(true)
   const [iframeKey, setIframeKey] = useState(0);
-  const iframeUrl = "http://192.168.137.1:3000"; // Change this to your desired URL
+  const iframeUrl = "http://localhost:3000"; // Change this to your desired URL
   const [lockModeStatus, setLockModeStatus] = useState([]);
 
 
@@ -68,14 +95,14 @@ function App() {
 
   const navihome = () => {
     handleReload()
+    
   }
-  
-   
-  return (
-    <div className="flex flex-col w-screen h-screen">
+  return(
+<div className="flex flex-col w-screen h-screen bg-green-600 rounded-md shadow-lg">
       
-      <div  className='flex w-full gap-x-2 bg-green-600 text-white p-2 items-center drag-region' >
-    <House width={50} height={50}/>
+      <div  className='flex w-full gap-x-2  text-white p-2 items-center drag-region' >
+
+      <img className=" p-[1px] bg-green-400/20 rounded-full" alt="hello" height={30} width={30} src="../assets/lds.png"/> 
    <p className=" font-bold ">LearningDeck</p>
 
 
@@ -85,9 +112,8 @@ function App() {
      {error} 
     </div>
     <div className="flex  gap-x-3 pr-0 p-[-90px] mr-0"    >
-    <House width={21} height={21} onClick={navihome} />
-    <LockOpen width={21} height={21}/></div>
-    <div className="ml-2 p-1 hover:bg-green-200/20 hover:rounded-full rounded-full "    >
+   </div>
+    <div className="ml-2 p-1  hover:bg-green-50/20 hover:rounded-full  rounded-full no-drag-gion "    >
                 <Bolt width={20} height={20}/>
      
     </div>
@@ -95,8 +121,11 @@ function App() {
       </div>  
       
       
-      <div className=" flex flex-col h-full w-full items-center justify-center bg-green-600">
-     {loading && <p className="items-center px-2 py-1"> <MoonLoader color="white" /></p>}
+      <div className=" flex flex-col h-full w-full items-center justify-center ">
+     {loading && <p className="items-center px-2 py-1">
+      
+      <img className=" p-[1px] bg-green-400/20 rounded-full animate-in scale-90 opacity-10 duration-1000   animate-pulse  transition-all " alt="hello" height={110} width={110} src="/lds.png" />
+      </p>}
           
             <iframe
                 key={iframeKey}
@@ -116,9 +145,8 @@ function App() {
  
           
     </div>
-  );
+  )
 }
-
 function Header() {
   return (
     <header className='bg-green-200/20 rounded-full px-2 flex gap-x-3 py-1 text-white no-drag-gion'>

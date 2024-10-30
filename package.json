@@ -39,12 +39,11 @@
     "react-spinners": "^0.14.1",
     "recharts": "^2.12.7",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7",
-    "tsc": "^2.0.4"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@playwright/test": "^1.47.2",
-    "@types/node": "^22.5.5",
+    "@types/node": "^22.7.8",
     "@types/os-utils": "^0.0.4",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
